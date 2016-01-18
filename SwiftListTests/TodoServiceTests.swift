@@ -8,26 +8,38 @@ import OHHTTPStubs
 
 
 class TodoServiceSpec: QuickSpec {
-    
+
     var data: NSData?
     
     override func spec() {
-        it("should list todos") { () -> () in
-            stub(isHost("httpbin.org")) { _ in
-                let stubData = "Hello World!".dataUsingEncoding(NSUTF8StringEncoding)
+        
+        it("Should load Todos list"){
+            //TODO stub is not working it calls the actual apis
+            stub(isHost("localhost")) { _ in
+                print("Inside stub")
+                let stubData = "[{\"title\":\"My first todo\",\"id\":1}], {\"title\":\"My first todo\",\"id\":2}".dataUsingEncoding(NSUTF8StringEncoding)
                 return OHHTTPStubsResponse(data: stubData!, statusCode:200, headers:nil)
             }
             
-            Alamofire.request(.GET, "http://httpbin.org/get", parameters: ["foo": "bar"])
-                .responseString() { self.data = $0.data }
-            expect(self.data).toEventually(equal("Hello World!".dataUsingEncoding(NSUTF8StringEncoding)))
-
+            let todoDelegate = MockTodoDelegate()
+            let service = TodoService(todoDelegate: todoDelegate)
+            expect(todoDelegate.countTodosReceived()).toEventually(equal(0))
+            service.loadTodos()
+            expect(todoDelegate.countTodosReceived()).toEventually(equal(2))
         }
-        
-        
+    }
+}
+
+
+
+class MockTodoDelegate: TodoDelegate {
+    
+    var todos: [Todo] = []
+    func updateTodoList(todos: [Todo]) {
+        self.todos = todos        
     }
     
-    
-    
-    
+    func countTodosReceived() -> Int {
+        return self.todos.count
+    }
 }

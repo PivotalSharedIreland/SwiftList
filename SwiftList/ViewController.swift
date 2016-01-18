@@ -8,12 +8,17 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, TodoDelegate {
 
-    
+    var todos: [Todo] = []
+    var todoService: TodoService?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.todoService = TodoService(todoDelegate: self)
+        todoService?.loadTodos()
+        
         //TODO create TodoService
         // self.todoService = TodoService(delegate: self)
         // self.todoService.requestTodoList()
@@ -36,6 +41,13 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    
+    func updateTodoList(todos: [Todo]) {
+        print("New TodoList received \(todos)")
+        self.todos = todos
+        //refresh UI
+    }
+    
 
 }
 
