@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AE59513E1C4903B0001D8232 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE59513D1C4903B0001D8232 /* Alamofire.framework */; };
+		AE5951451C49059D001D8232 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE59513F1C4903B4001D8232 /* Nimble.framework */; };
+		AE5951461C49059D001D8232 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE5951411C4903B7001D8232 /* Quick.framework */; };
+		AE59514A1C490606001D8232 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = AE5951481C490606001D8232 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AE59514B1C490606001D8232 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = AE5951491C490606001D8232 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AEB94A551C48F46700390BB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB94A541C48F46700390BB6 /* AppDelegate.swift */; };
 		AEB94A571C48F46700390BB6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB94A561C48F46700390BB6 /* ViewController.swift */; };
 		AEB94A5A1C48F46700390BB6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEB94A581C48F46700390BB6 /* Main.storyboard */; };
@@ -14,6 +19,11 @@
 		AEB94A5F1C48F46700390BB6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEB94A5D1C48F46700390BB6 /* LaunchScreen.storyboard */; };
 		AEB94A6A1C48F46700390BB6 /* SwiftListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB94A691C48F46700390BB6 /* SwiftListTests.swift */; };
 		AEB94A751C48F46700390BB6 /* SwiftListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB94A741C48F46700390BB6 /* SwiftListUITests.swift */; };
+		AEE0CF731C49155B006C448A /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE0CF721C49155B006C448A /* Todo.swift */; };
+		AEE0CF761C491A1B006C448A /* TodoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE0CF751C491A1B006C448A /* TodoService.swift */; };
+		AEE0CF781C491A5C006C448A /* TodoServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE0CF771C491A5C006C448A /* TodoServiceTests.swift */; };
+		AEE0CF7A1C49452F006C448A /* OHHTTPStubs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEE0CF791C49452F006C448A /* OHHTTPStubs.framework */; };
+		AEE0CF7C1C4967DC006C448A /* OHHTTPStubs.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = AEE0CF7B1C4967DC006C448A /* OHHTTPStubs.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,7 +43,27 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		AE5951471C4905CD001D8232 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				AE59514A1C490606001D8232 /* Nimble.framework in CopyFiles */,
+				AE59514B1C490606001D8232 /* Quick.framework in CopyFiles */,
+				AEE0CF7C1C4967DC006C448A /* OHHTTPStubs.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		AE59513D1C4903B0001D8232 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		AE59513F1C4903B4001D8232 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
+		AE5951411C4903B7001D8232 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
+		AE5951481C490606001D8232 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
+		AE5951491C490606001D8232 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		AEB94A511C48F46700390BB6 /* SwiftList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEB94A541C48F46700390BB6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AEB94A561C48F46700390BB6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +77,11 @@
 		AEB94A701C48F46700390BB6 /* SwiftListUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftListUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEB94A741C48F46700390BB6 /* SwiftListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftListUITests.swift; sourceTree = "<group>"; };
 		AEB94A761C48F46700390BB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AEE0CF721C49155B006C448A /* Todo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
+		AEE0CF751C491A1B006C448A /* TodoService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoService.swift; sourceTree = "<group>"; };
+		AEE0CF771C491A5C006C448A /* TodoServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoServiceTests.swift; sourceTree = "<group>"; };
+		AEE0CF791C49452F006C448A /* OHHTTPStubs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OHHTTPStubs.framework; path = Carthage/Build/iOS/OHHTTPStubs.framework; sourceTree = "<group>"; };
+		AEE0CF7B1C4967DC006C448A /* OHHTTPStubs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OHHTTPStubs.framework; path = Carthage/Build/iOS/OHHTTPStubs.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE59513E1C4903B0001D8232 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +97,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE5951451C49059D001D8232 /* Nimble.framework in Frameworks */,
+				AE5951461C49059D001D8232 /* Quick.framework in Frameworks */,
+				AEE0CF7A1C49452F006C448A /* OHHTTPStubs.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +116,13 @@
 		AEB94A481C48F46700390BB6 = {
 			isa = PBXGroup;
 			children = (
+				AEE0CF7B1C4967DC006C448A /* OHHTTPStubs.framework */,
+				AEE0CF791C49452F006C448A /* OHHTTPStubs.framework */,
+				AE5951481C490606001D8232 /* Nimble.framework */,
+				AE5951491C490606001D8232 /* Quick.framework */,
+				AE5951411C4903B7001D8232 /* Quick.framework */,
+				AE59513F1C4903B4001D8232 /* Nimble.framework */,
+				AE59513D1C4903B0001D8232 /* Alamofire.framework */,
 				AEB94A531C48F46700390BB6 /* SwiftList */,
 				AEB94A681C48F46700390BB6 /* SwiftListTests */,
 				AEB94A731C48F46700390BB6 /* SwiftListUITests */,
@@ -99,10 +145,12 @@
 			children = (
 				AEB94A541C48F46700390BB6 /* AppDelegate.swift */,
 				AEB94A561C48F46700390BB6 /* ViewController.swift */,
+				AEE0CF741C491572006C448A /* Models */,
 				AEB94A581C48F46700390BB6 /* Main.storyboard */,
 				AEB94A5B1C48F46700390BB6 /* Assets.xcassets */,
 				AEB94A5D1C48F46700390BB6 /* LaunchScreen.storyboard */,
 				AEB94A601C48F46700390BB6 /* Info.plist */,
+				AEE0CF751C491A1B006C448A /* TodoService.swift */,
 			);
 			path = SwiftList;
 			sourceTree = "<group>";
@@ -110,6 +158,7 @@
 		AEB94A681C48F46700390BB6 /* SwiftListTests */ = {
 			isa = PBXGroup;
 			children = (
+				AEE0CF771C491A5C006C448A /* TodoServiceTests.swift */,
 				AEB94A691C48F46700390BB6 /* SwiftListTests.swift */,
 				AEB94A6B1C48F46700390BB6 /* Info.plist */,
 			);
@@ -125,6 +174,14 @@
 			path = SwiftListUITests;
 			sourceTree = "<group>";
 		};
+		AEE0CF741C491572006C448A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AEE0CF721C49155B006C448A /* Todo.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,6 +192,7 @@
 				AEB94A4D1C48F46700390BB6 /* Sources */,
 				AEB94A4E1C48F46700390BB6 /* Frameworks */,
 				AEB94A4F1C48F46700390BB6 /* Resources */,
+				AE5951431C4903C9001D8232 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -152,6 +210,7 @@
 				AEB94A611C48F46700390BB6 /* Sources */,
 				AEB94A621C48F46700390BB6 /* Frameworks */,
 				AEB94A631C48F46700390BB6 /* Resources */,
+				AE5951471C4905CD001D8232 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -251,13 +310,32 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		AE5951431C4903C9001D8232 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		AEB94A4D1C48F46700390BB6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				AEB94A571C48F46700390BB6 /* ViewController.swift in Sources */,
+				AEE0CF731C49155B006C448A /* Todo.swift in Sources */,
 				AEB94A551C48F46700390BB6 /* AppDelegate.swift in Sources */,
+				AEE0CF761C491A1B006C448A /* TodoService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,6 +344,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AEB94A6A1C48F46700390BB6 /* SwiftListTests.swift in Sources */,
+				AEE0CF781C491A5C006C448A /* TodoServiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -397,6 +476,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = SwiftList/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.pivotal.SwiftList;
@@ -408,6 +491,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = SwiftList/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.pivotal.SwiftList;
@@ -419,6 +506,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = SwiftListTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.pivotal.SwiftListTests;
@@ -431,6 +522,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = SwiftListTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.pivotal.SwiftListTests;
@@ -482,6 +577,7 @@
 				AEB94A7B1C48F46700390BB6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AEB94A7C1C48F46700390BB6 /* Build configuration list for PBXNativeTarget "SwiftListTests" */ = {
 			isa = XCConfigurationList;
@@ -490,6 +586,7 @@
 				AEB94A7E1C48F46700390BB6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AEB94A7F1C48F46700390BB6 /* Build configuration list for PBXNativeTarget "SwiftListUITests" */ = {
 			isa = XCConfigurationList;
@@ -498,6 +595,7 @@
 				AEB94A811C48F46700390BB6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

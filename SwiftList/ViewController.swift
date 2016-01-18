@@ -10,8 +10,24 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        //TODO create TodoService
+        // self.todoService = TodoService(delegate: self)
+        // self.todoService.requestTodoList()
+        // TodoServiceDelegate {
+        //   func didLoadTodoList(todoList: [Todo])
+        //
+        // }
+        //
+        // var todoList: [Todo]?
+        // func didLoadTodoList(todoList: [Todo]) {
+        //      self.todoList = todoList
+        //      self.tableView.reloadData
+        // }
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
 
