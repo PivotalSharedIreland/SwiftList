@@ -12,8 +12,10 @@
 		AE5951461C49059D001D8232 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE5951411C4903B7001D8232 /* Quick.framework */; };
 		AE59514A1C490606001D8232 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = AE5951481C490606001D8232 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AE59514B1C490606001D8232 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = AE5951491C490606001D8232 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AE73FF371C4E405A00200CA5 /* TodosTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE73FF361C4E405A00200CA5 /* TodosTableViewController.swift */; };
+		AE73FF391C4E489400200CA5 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE73FF381C4E489400200CA5 /* AddViewController.swift */; };
+		AE73FF3B1C4E66A000200CA5 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE73FF3A1C4E66A000200CA5 /* DetailsViewController.swift */; };
 		AEB94A551C48F46700390BB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB94A541C48F46700390BB6 /* AppDelegate.swift */; };
-		AEB94A571C48F46700390BB6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB94A561C48F46700390BB6 /* ViewController.swift */; };
 		AEB94A5A1C48F46700390BB6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEB94A581C48F46700390BB6 /* Main.storyboard */; };
 		AEB94A5C1C48F46700390BB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AEB94A5B1C48F46700390BB6 /* Assets.xcassets */; };
 		AEB94A5F1C48F46700390BB6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEB94A5D1C48F46700390BB6 /* LaunchScreen.storyboard */; };
@@ -65,9 +67,11 @@
 		AE5951411C4903B7001D8232 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		AE5951481C490606001D8232 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		AE5951491C490606001D8232 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
+		AE73FF361C4E405A00200CA5 /* TodosTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodosTableViewController.swift; sourceTree = "<group>"; };
+		AE73FF381C4E489400200CA5 /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
+		AE73FF3A1C4E66A000200CA5 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		AEB94A511C48F46700390BB6 /* SwiftList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEB94A541C48F46700390BB6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AEB94A561C48F46700390BB6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		AEB94A591C48F46700390BB6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AEB94A5B1C48F46700390BB6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AEB94A5E1C48F46700390BB6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -148,7 +152,6 @@
 			isa = PBXGroup;
 			children = (
 				AEB94A541C48F46700390BB6 /* AppDelegate.swift */,
-				AEB94A561C48F46700390BB6 /* ViewController.swift */,
 				AEE0CF741C491572006C448A /* Models */,
 				AEB94A581C48F46700390BB6 /* Main.storyboard */,
 				AEB94A5B1C48F46700390BB6 /* Assets.xcassets */,
@@ -156,6 +159,9 @@
 				AEB94A601C48F46700390BB6 /* Info.plist */,
 				AEE0CF751C491A1B006C448A /* TodoService.swift */,
 				AEDB87431C4CEEAC00050BC8 /* TodoDelegate.swift */,
+				AE73FF361C4E405A00200CA5 /* TodosTableViewController.swift */,
+				AE73FF381C4E489400200CA5 /* AddViewController.swift */,
+				AE73FF3A1C4E66A000200CA5 /* DetailsViewController.swift */,
 			);
 			path = SwiftList;
 			sourceTree = "<group>";
@@ -337,11 +343,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AEB94A571C48F46700390BB6 /* ViewController.swift in Sources */,
 				AEE0CF731C49155B006C448A /* Todo.swift in Sources */,
+				AE73FF391C4E489400200CA5 /* AddViewController.swift in Sources */,
 				AEB94A551C48F46700390BB6 /* AppDelegate.swift in Sources */,
 				AEE0CF761C491A1B006C448A /* TodoService.swift in Sources */,
+				AE73FF3B1C4E66A000200CA5 /* DetailsViewController.swift in Sources */,
 				AEDB87441C4CEEAC00050BC8 /* TodoDelegate.swift in Sources */,
+				AE73FF371C4E405A00200CA5 /* TodosTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

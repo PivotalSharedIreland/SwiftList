@@ -23,9 +23,12 @@ class TodoServiceSpec: QuickSpec {
             
             let todoDelegate = MockTodoDelegate()
             let service = TodoService(todoDelegate: todoDelegate)
+            
             expect(todoDelegate.countTodosReceived()).toEventually(equal(0))
+            
             service.loadTodos()
             expect(todoDelegate.countTodosReceived()).toEventually(equal(2))
+            expect(todoDelegate.getTodo(0).title).toEventually(equal("My first todo"))
         }
     }
 }
@@ -41,5 +44,9 @@ class MockTodoDelegate: TodoDelegate {
     
     func countTodosReceived() -> Int {
         return self.todos.count
+    }
+    
+    func getTodo(idx: Int) -> Todo {
+        return self.todos[idx]
     }
 }

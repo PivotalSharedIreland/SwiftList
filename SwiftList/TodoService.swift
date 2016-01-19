@@ -16,34 +16,58 @@ class TodoService {
     
     var todosAsText: String?
     
+    let API_URL = "http://localhost:8080"
+    
     init(todoDelegate: TodoDelegate){
         self.todoDelegate = todoDelegate
     }
     
     func loadTodos() {
-        print("Calling APIs")
-        Alamofire.request(.GET, "http://localhost:8080/todos")
+        Alamofire.request(.GET, "\(API_URL)/todos")
             .responseJSON { response in
-//                print(response.request)  // original URL request
-//                print(response.response) // URL response
-//                print(response.data)     // server data
-//                print(response.result)   // result of response serialization
-//                debugPrint(response)
-                
-                if let JSON = response.result.value {
-                    print(":::::JSON: \(JSON)")
-                    print(":::::JSON: \(JSON.count)")
-                    
-                    
-                    //TODO Fix this shit
-                    var todos: [Todo] = []
-                    for var i = 0; i < JSON.count; i++
-                    {
-                        todos.append(Todo()) //TODO mapping json to object
-                    }
-                    self.todoDelegate.updateTodoList(todos)
+                switch response.result {
+                    case .Success:
+                        self.sendUpdatedList(response)
+                    case .Failure(let error):
+                        print(error)
                 }
         }
     }
     
+    func sendUpdatedList(response: Response<AnyObject,NSError>) -> Void {
+        if let JSON = response.result.value {
+            //TODO Fix this code - Add a converter class
+            var todos: [Todo] = []
+            for var i = 0; i < JSON.count; i++
+            {
+                //TODO mapping json to object
+                let todo = Todo()
+                todo.title = JSON[i]["title"] as! String
+                todo.id = JSON[i]["id"] as! Int?
+                todos.append(todo)
+            }
+            self.todoDelegate.updateTodoList(todos)
+        }
+    }
+    
+    func saveTodo(todo:Todo) -> Void {
+        let parameters = [
+            "title" : todo.title
+        ]
+        
+        Alamofire.request(.POST, "\(API_URL)/todos", parameters: parameters, encoding: .JSON).responseJSON { response in
+            switch response.result {
+            case .Success:
+                self.todoDelegate.savedTodoCallback()
+            case .Failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    func deleteTodo(todo:Todo) {
+        Alamofire.request(.DELETE, "\(API_URL)/todos/\(todo.id!)", encoding: .JSON).responseJSON { response in
+            self.todoDelegate.deleteTodoCallback()
+        }
+    }
 }
