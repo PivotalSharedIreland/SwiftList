@@ -8,14 +8,14 @@
 
 import UIKit
 
-class TodosTableViewController: UITableViewController, TodoDelegate {
+class TodosTableViewController: UITableViewController, TodoListLoaderDelegate {
 
     var todos: [Todo] = []
     var todoService: TodoService?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.todoService = TodoService(todoDelegate: self)
+        self.todoService = TodoService()
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,7 +37,7 @@ class TodosTableViewController: UITableViewController, TodoDelegate {
     }
     
     func loadTodos() -> Void {
-        todoService?.loadTodos()
+        todoService?.loadTodos(self)
     }
     
     func savedTodoCallback() {}

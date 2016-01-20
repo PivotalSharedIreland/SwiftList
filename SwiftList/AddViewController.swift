@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddViewController: UIViewController, TodoDelegate {
+class AddViewController: UIViewController, TodoSaverDelgate {
 
     @IBOutlet weak var todoTitle: UITextField!
     
@@ -16,7 +16,7 @@ class AddViewController: UIViewController, TodoDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.todoService = TodoService(todoDelegate: self)
+        self.todoService = TodoService()
     }
 
     override func didReceiveMemoryWarning() {
@@ -27,7 +27,7 @@ class AddViewController: UIViewController, TodoDelegate {
         if(self.todoTitle.text != nil){
             let todo = Todo()
             todo.title = todoTitle.text!
-            self.todoService?.saveTodo(todo)
+            self.todoService?.saveTodo(todo, todoDelegate: self)
         }
 
     }

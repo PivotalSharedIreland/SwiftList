@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DetailsViewController: UIViewController, TodoDelegate {
+class DetailsViewController: UIViewController, TodoRemoverDelegate {
 
 
     @IBOutlet var todoTitle: UITextField!
@@ -18,7 +18,7 @@ class DetailsViewController: UIViewController, TodoDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.todoService = TodoService(todoDelegate: self)
+        self.todoService = TodoService()
 
         todoTitle.userInteractionEnabled = false
         todoTitle.text = todo.title
@@ -29,13 +29,10 @@ class DetailsViewController: UIViewController, TodoDelegate {
     }
     
     @IBAction func deleteTodoAction(sender: AnyObject) {
-        self.todoService?.deleteTodo(todo)
+        self.todoService?.deleteTodo(todo, todoDelegate: self)
     }
     
     func deleteTodoCallback() -> Void {
         self.navigationController?.popToRootViewControllerAnimated(true);
     }
-    
-    func updateTodoList(todos: [Todo]) -> Void {}
-    func savedTodoCallback() ->Void {}
 }

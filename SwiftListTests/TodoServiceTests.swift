@@ -33,11 +33,10 @@ class TodoServiceSpec: QuickSpec {
             
             it("Should load Todos list"){
                 let todoDelegate = MockTodoDelegate()
-                let service = TodoService(todoDelegate: todoDelegate)
+                let service = TodoService()
                 
                 expect(todoDelegate.countTodosReceived()).toEventually(equal(0))
-                
-                service.loadTodos()
+                service.loadTodos(todoDelegate)
                 expect(todoDelegate.countTodosReceived()).toEventually(equal(2))
             }
         }
@@ -46,7 +45,7 @@ class TodoServiceSpec: QuickSpec {
 
 
 
-class MockTodoDelegate: TodoDelegate {
+class MockTodoDelegate: TodoListLoaderDelegate,TodoSaverDelgate, TodoRemoverDelegate  {
     
     var todos: [Todo] = []
     

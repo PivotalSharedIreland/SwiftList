@@ -12,29 +12,24 @@ import Alamofire
 
 class TodoService {
     
-    var todoDelegate: TodoDelegate
     
     var todosAsText: String?
-    
     let API_URL = "http://localhost:8080"
     
-    init(todoDelegate: TodoDelegate){
-        self.todoDelegate = todoDelegate
-    }
     
-    func loadTodos() {
+    func loadTodos(todoListLoader: TodoListLoaderDelegate) {
         Alamofire.request(.GET, "\(API_URL)/todos")
             .responseJSON { response in
                 switch response.result {
                     case .Success:
-                        self.sendUpdatedList(response)
+                        self.sendUpdatedList(response, todoListLoader: todoListLoader)
                     case .Failure(let error):
                         print(error)
                 }
         }
     }
     
-    func sendUpdatedList(response: Response<AnyObject,NSError>) -> Void {
+    func sendUpdatedList(response: Response<AnyObject,NSError>, todoListLoader: TodoListLoaderDelegate) -> Void {
         if let JSON = response.result.value {
             //TODO Fix this code - Add a converter class
             var todos: [Todo] = []
@@ -46,11 +41,11 @@ class TodoService {
                 todo.id = JSON[i]["id"] as! Int?
                 todos.append(todo)
             }
-            self.todoDelegate.updateTodoList(todos)
+            todoListLoader.updateTodoList(todos)
         }
     }
     
-    func saveTodo(todo:Todo) -> Void {
+    func saveTodo(todo:Todo, todoDelegate: TodoSaverDelgate) -> Void {
         let parameters = [
             "title" : todo.title
         ]
@@ -59,16 +54,16 @@ class TodoService {
             .responseJSON { response in
                 switch response.result {
                     case .Success:
-                        self.todoDelegate.savedTodoCallback()
+                        todoDelegate.savedTodoCallback()
                     case .Failure(let error):
                         print(error)
                 }
         }
     }
     
-    func deleteTodo(todo:Todo) {
+    func deleteTodo(todo:Todo, todoDelegate: TodoRemoverDelegate) {
         Alamofire.request(.DELETE, "\(API_URL)/todos/\(todo.id!)", encoding: .JSON).responseJSON { response in
-            self.todoDelegate.deleteTodoCallback()
+            todoDelegate.deleteTodoCallback()
         }
     }
 }

@@ -152,7 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				AEB94A541C48F46700390BB6 /* AppDelegate.swift */,
-				AEE0CF741C491572006C448A /* Models */,
+				AEE0CF721C49155B006C448A /* Todo.swift */,
 				AEB94A581C48F46700390BB6 /* Main.storyboard */,
 				AEB94A5B1C48F46700390BB6 /* Assets.xcassets */,
 				AEB94A5D1C48F46700390BB6 /* LaunchScreen.storyboard */,
@@ -183,14 +183,6 @@
 				AEB94A761C48F46700390BB6 /* Info.plist */,
 			);
 			path = SwiftListUITests;
-			sourceTree = "<group>";
-		};
-		AEE0CF741C491572006C448A /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				AEE0CF721C49155B006C448A /* Todo.swift */,
-			);
-			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

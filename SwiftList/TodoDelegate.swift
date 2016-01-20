@@ -8,9 +8,14 @@
 
 import Foundation
 
-
-protocol TodoDelegate {
+protocol TodoListLoaderDelegate {
     func updateTodoList(todos: [Todo]) -> Void
-    func savedTodoCallback() ->Void
-    func deleteTodoCallback() ->Void
+}
+
+protocol TodoSaverDelgate {
+    func savedTodoCallback() -> Void
+}
+
+protocol TodoRemoverDelegate {
+    func deleteTodoCallback() -> Void
 }
