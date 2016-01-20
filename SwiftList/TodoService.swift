@@ -55,13 +55,14 @@ class TodoService {
             "title" : todo.title
         ]
         
-        Alamofire.request(.POST, "\(API_URL)/todos", parameters: parameters, encoding: .JSON).responseJSON { response in
-            switch response.result {
-            case .Success:
-                self.todoDelegate.savedTodoCallback()
-            case .Failure(let error):
-                print(error)
-            }
+        Alamofire.request(.POST, "\(API_URL)/todos", parameters: parameters, encoding: .JSON)
+            .responseJSON { response in
+                switch response.result {
+                    case .Success:
+                        self.todoDelegate.savedTodoCallback()
+                    case .Failure(let error):
+                        print(error)
+                }
         }
     }
     

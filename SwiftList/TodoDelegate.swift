@@ -10,7 +10,6 @@ import Foundation
 
 
 protocol TodoDelegate {
-    
     func updateTodoList(todos: [Todo]) -> Void
     func savedTodoCallback() ->Void
     func deleteTodoCallback() ->Void
