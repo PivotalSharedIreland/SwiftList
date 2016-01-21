@@ -45,7 +45,7 @@ class TodosTableViewController: UITableViewController, TodoListLoaderDelegate {
     func deleteTodoCallback() -> Void {}
     
     override func viewWillAppear(animated: Bool){
-        self.loadTodos()
+        self.performSelector(Selector("loadTodos"), withObject: self, afterDelay: 0)
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

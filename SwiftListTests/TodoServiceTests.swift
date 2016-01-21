@@ -2,39 +2,27 @@
 
 import Quick
 import Nimble
-
-
-import Alamofire
 import OHHTTPStubs
-import OHHTTPStubs.Swift
-
+import Alamofire
 
 class TodoServiceSpec: QuickSpec {
-
-    var data: NSData?
     
     override func spec() {
-        
-        
         describe("the 'Documentation' directory") {
-            beforeEach{
-                OHHTTPStubs.setEnabled(true)
-                print("Before each test")
-                let x = stub(isHost("localhost")) { _ in
-                    
-                    let stubData = "[{\"title\":\"My first todo\",\"id\":1}], {\"title\":\"My first todo\",\"id\":2}".dataUsingEncoding(NSUTF8StringEncoding)
-                    
-                    return OHHTTPStubsResponse(data: stubData!, statusCode:200, headers:nil)
-                    
+            beforeEach {
+                stub(isHost("localhost")) { _ in
+                    return OHHTTPStubsResponse(JSONObject: [["title": "world"], ["title" : "test2"]], statusCode: 200, headers: nil)
                 }
-                x.name = "Localhost stub"
-                print("Stub: \(x) - \(x.description)")
             }
             
-            it("Should load Todos list"){
+            afterEach {
+                OHHTTPStubs.removeAllStubs()
+            }
+
+            it("Should load Todos list") {
                 let todoDelegate = MockTodoDelegate()
                 let service = TodoService()
-                
+
                 expect(todoDelegate.countTodosReceived()).toEventually(equal(0))
                 service.loadTodos(todoDelegate)
                 expect(todoDelegate.countTodosReceived()).toEventually(equal(2))
@@ -68,4 +56,5 @@ class MockTodoDelegate: TodoListLoaderDelegate,TodoSaverDelgate, TodoRemoverDele
     func getTodo(idx: Int) -> Todo {
         return self.todos[idx]
     }
+    
 }
